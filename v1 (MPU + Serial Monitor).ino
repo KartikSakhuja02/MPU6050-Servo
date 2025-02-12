@@ -1,10 +1,8 @@
 #include <Adafruit_MPU6050.h>
 #include <Adafruit_Sensor.h>
 #include <Wire.h>
-#include <Servo.h>
 
 Adafruit_MPU6050 mpu;
-Servo myServo;
 
 void setup() {
   Serial.begin(115200);
@@ -25,8 +23,6 @@ void setup() {
   mpu.setGyroRange(MPU6050_RANGE_500_DEG);
   mpu.setFilterBandwidth(MPU6050_BAND_21_HZ);
 
-  myServo.attach(10); // Attach the servo to pin 9
-  myServo.write(90); // Start at the neutral position
 
   delay(100);
 }
@@ -44,7 +40,6 @@ void loop() {
   Serial.print("X-axis Acceleration: ");
   Serial.print(xAcceleration);
   Serial.print(" m/s^2, Servo Angle: ");
-  Serial.println(servoAngle);
 
   delay(100);
 }
